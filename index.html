@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Military Law System V3</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:Kanit,sans-serif;margin:0;background:#eef4ff;color:#1e293b}
+header{background:#fff;padding:16px 24px;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0}
+.hero{padding:80px 20px;text-align:center}
+.hero h1{font-size:48px}
+.btn{background:#2563eb;color:#fff;border:none;padding:14px 24px;border-radius:12px;cursor:pointer}
+.wrap{max-width:1200px;margin:auto;padding:20px}
+.search{width:100%;padding:14px;border-radius:12px;border:1px solid #cbd5e1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:20px}
+.card{background:#fff;padding:16px;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);align-items:center;justify-content:center}
+.box{background:#fff;padding:24px;border-radius:16px;max-width:700px;width:90%}
+</style>
+</head>
+<body>
+<header><strong>⚖️ Military Law System V3</strong></header>
+
+<div class="hero">
+<h1>ระบบกฎหมายทหารไทย Roblox</h1>
+<p>ค้นหา • หมวดหมู่ • รายละเอียดมาตรา • พร้อมสำหรับ GitHub Pages</p>
+<button class="btn" onclick="document.getElementById('laws').scrollIntoView({behavior:'smooth'})">เริ่มใช้งาน</button>
+</div>
+
+<div class="wrap" id="laws">
+<input class="search" id="search" placeholder="ค้นหามาตรา..." onkeyup="render()">
+<div class="grid" id="list"></div>
+</div>
+
+<div class="modal" id="modal" onclick="this.style.display='none'">
+<div class="box" onclick="event.stopPropagation()">
+<h2 id="title"></h2>
+<p id="detail"></p>
+</div>
+</div>
+
+<script>
+const laws=[];
+for(let i=1;i<=50;i++){
+ laws.push({
+   id:i,
+   title:`มาตรา ${i}`,
+   detail:`รายละเอียดกฎหมายมาตราที่ ${i} สามารถแก้ไขเพิ่มเติมได้`
+ });
+}
+function render(){
+ let q=document.getElementById('search').value.toLowerCase();
+ let html='';
+ laws.filter(x=>(x.title+' '+x.detail).toLowerCase().includes(q))
+ .forEach(x=>{
+   html+=`<div class="card" onclick="openLaw(${x.id})"><h3>${x.title}</h3><p>${x.detail}</p></div>`;
+ });
+ document.getElementById('list').innerHTML=html;
+}
+function openLaw(id){
+ let x=laws.find(a=>a.id===id);
+ title.textContent=x.title;
+ detail.textContent=x.detail;
+ modal.style.display='flex';
+}
+render();
+</script>
+</body>
+</html>
