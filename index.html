@@ -13,12 +13,12 @@
     --dark2: #111418;
     --dark3: #181d24;
     --panel: #1a2030;
-    --border: rgba(201,168,76,0.25);
+    --border: rgba(201,168,76,0.35); /* เพิ่มความเข้มขอบให้ชัดขึ้น */
     --green: #2a4a2a;
     --green-bright: #4caf50;
     --red: #c0392b;
-    --text: #e8e0cc;
-    --text-dim: #8a8070;
+    --text: #ffffff; /* ปรับจาก e8e0cc เป็นขาวบริสุทธิ์เพื่อแก้ปัญหามองไม่เห็น */
+    --text-dim: #b0a898; /* ปรับให้สว่างขึ้นจากเดิมเพื่อไม่ให้กลืนกับพื้นหลัง */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -77,12 +77,12 @@
 
   .rank-badge {
     font-family: 'Chakra Petch', monospace;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.4em;
     color: var(--gold);
     text-transform: uppercase;
     margin-bottom: 1rem;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   .title-main {
@@ -104,7 +104,7 @@
     font-family: 'Chakra Petch', monospace;
     font-size: 0.85rem;
     letter-spacing: 0.2em;
-    color: rgba(201,168,76,0.5);
+    color: rgba(201,168,76,0.7);
     margin-bottom: 3rem;
   }
 
@@ -120,12 +120,12 @@
     margin-bottom: 3rem;
   }
   .info-chip {
-    background: rgba(201,168,76,0.08);
+    background: rgba(201,168,76,0.12);
     border: 1px solid var(--border);
     padding: 0.5rem 1.2rem;
     border-radius: 4px;
     font-size: 0.85rem;
-    color: var(--gold);
+    color: var(--gold-light);
     font-family: 'Chakra Petch', monospace;
   }
   .info-chip span { color: var(--text-dim); font-size: 0.75rem; margin-right: 0.4rem; }
@@ -144,6 +144,7 @@
     transition: all 0.3s;
     animation: shimmer 3s linear infinite;
     box-shadow: 0 4px 30px rgba(201,168,76,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+    z-index: 10;
   }
   .btn-start:hover {
     transform: translateY(-2px);
@@ -158,15 +159,15 @@
 
   .warning-box {
     margin-top: 2.5rem;
-    border: 1px solid rgba(192,57,43,0.4);
-    background: rgba(192,57,43,0.06);
+    border: 1px solid rgba(192,57,43,0.6);
+    background: rgba(192,57,43,0.15);
     padding: 0.9rem 1.5rem;
     border-radius: 4px;
     font-size: 0.85rem;
-    color: #e88;
+    color: #ffb3b3;
     max-width: 500px;
   }
-  .warning-box strong { color: #f55; }
+  .warning-box strong { color: #ff4d4d; }
 
   /* ─── RULES PAGE ─── */
   #rules-page {
@@ -206,7 +207,7 @@
   }
   #search-input {
     width: 100%;
-    background: rgba(201,168,76,0.07);
+    background: rgba(201,168,76,0.1);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 0.6rem 1rem 0.6rem 2.5rem;
@@ -219,7 +220,7 @@
   #search-input::placeholder { color: var(--text-dim); }
   #search-input:focus {
     border-color: var(--gold);
-    background: rgba(201,168,76,0.12);
+    background: rgba(201,168,76,0.18);
   }
 
   .filter-btns {
@@ -239,23 +240,23 @@
   }
   .filter-btn.active, .filter-btn:hover {
     border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(201,168,76,0.1);
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.15);
   }
 
   .btn-back {
     padding: 0.45rem 1rem;
     background: transparent;
-    border: 1px solid rgba(192,57,43,0.5);
+    border: 1px solid rgba(192,57,43,0.7);
     border-radius: 3px;
-    color: #e88;
+    color: #ffb3b3;
     font-family: 'Chakra Petch', monospace;
     font-size: 0.78rem;
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
   }
-  .btn-back:hover { background: rgba(192,57,43,0.15); border-color: #e44; }
+  .btn-back:hover { background: rgba(192,57,43,0.25); border-color: #ff4d4d; }
 
   /* STATS BAR */
   .stats-bar {
@@ -289,9 +290,9 @@
   .cat-line { flex: 1; height: 1px; background: var(--border); }
   .cat-label {
     font-family: 'Chakra Petch', monospace;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     letter-spacing: 0.25em;
-    color: var(--gold);
+    color: var(--gold-light);
     background: var(--dark);
     padding: 0 0.8rem;
     white-space: nowrap;
@@ -318,60 +319,56 @@
     transition: width 0.2s;
   }
   .rule-card:hover {
-    border-color: rgba(201,168,76,0.5);
-    background: rgba(26,32,48,0.9);
+    border-color: rgba(201,168,76,0.6);
+    background: rgba(30, 37, 56, 1);
     transform: translateX(2px);
-    box-shadow: -4px 0 20px rgba(201,168,76,0.1);
-  }
-  .rule-card.highlight {
-    border-left-color: var(--gold-light);
-    background: rgba(201,168,76,0.08);
-    box-shadow: 0 0 20px rgba(201,168,76,0.15);
+    box-shadow: -4px 0 20px rgba(201,168,76,0.15);
   }
 
   /* severity colors */
-  .rule-card.sev-ban   { border-left-color: #e74c3c; }
-  .rule-card.sev-ban::before { background: #e74c3c; }
+  .rule-card.sev-ban   { border-left-color: #ff4d4d; }
+  .rule-card.sev-ban::before { background: #ff4d4d; }
   .rule-card.sev-warn  { border-left-color: #e67e22; }
   .rule-card.sev-warn::before { background: #e67e22; }
-  .rule-card.sev-duty  { border-left-color: #2980b9; }
-  .rule-card.sev-duty::before { background: #2980b9; }
+  .rule-card.sev-duty  { border-left-color: #3498db; }
+  .rule-card.sev-duty::before { background: #3498db; }
   .rule-card.sev-honor { border-left-color: var(--gold); }
 
   .rule-num {
     font-family: 'Chakra Petch', monospace;
     font-size: 1.3rem; font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-light);
     min-width: 48px;
     line-height: 1;
   }
   .rule-body { flex: 1; }
   .rule-title {
-    font-size: 1rem; font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.25rem;
+    font-size: 1.05rem; font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.35rem;
     line-height: 1.4;
   }
   .rule-desc {
-    font-size: 0.88rem; font-weight: 300;
-    color: var(--text-dim);
+    font-size: 0.9rem; font-weight: 400;
+    color: #e0e0e0; /* ปรับรายละเอียดให้อ่านง่ายบนพื้นหลังมืด */
     line-height: 1.6;
   }
   .rule-tags {
-    display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap;
+    display: flex; gap: 0.4rem; margin-top: 0.6rem; flex-wrap: wrap;
   }
   .tag {
     font-family: 'Chakra Petch', monospace;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
     border-radius: 2px;
     letter-spacing: 0.05em;
+    font-weight: 600;
   }
-  .tag-ban   { background: rgba(231,76,60,0.15); color: #e74c3c; border: 1px solid rgba(231,76,60,0.3); }
-  .tag-warn  { background: rgba(230,126,34,0.15); color: #e67e22; border: 1px solid rgba(230,126,34,0.3); }
-  .tag-duty  { background: rgba(41,128,185,0.15); color: #2980b9; border: 1px solid rgba(41,128,185,0.3); }
-  .tag-honor { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid var(--border); }
-  .tag-gameplay { background: rgba(46,204,113,0.12); color: #2ecc71; border: 1px solid rgba(46,204,113,0.25); }
+  .tag-ban   { background: rgba(231,76,60,0.25); color: #ff6b6b; border: 1px solid rgba(231,76,60,0.4); }
+  .tag-warn  { background: rgba(230,126,34,0.25); color: #ff9f43; border: 1px solid rgba(230,126,34,0.4); }
+  .tag-duty  { background: rgba(41,128,185,0.25); color: #54a0ff; border: 1px solid rgba(41,128,185,0.4); }
+  .tag-honor { background: rgba(201,168,76,0.25); color: var(--gold-light); border: 1px solid var(--border); }
+  .tag-gameplay { background: rgba(46,204,113,0.2); color: #2ecc71; border: 1px solid rgba(46,204,113,0.4); }
 
   /* NO RESULT */
   .no-result {
@@ -399,7 +396,7 @@
   #scroll-top.show { display: flex; }
 
   /* FADE IN */
-  .fade-in { animation: fadeIn 0.5s ease forwards; }
+  .fade-in { animation: fadeIn 0.4s ease forwards; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
 
   /* RESPONSIVE */
@@ -411,7 +408,6 @@
 </head>
 <body>
 
-<!-- ══════════ LANDING PAGE ══════════ -->
 <section id="landing">
   <div class="emblem">
     <div class="emblem-icon">⚔️</div>
@@ -432,9 +428,7 @@
   </div>
 </section>
 
-<!-- ══════════ RULES PAGE ══════════ -->
 <section id="rules-page">
-  <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar-logo">⚔️ RTM-RBX<small>THAI MILITARY</small></div>
     <div class="search-wrap">
@@ -451,7 +445,6 @@
     <button class="btn-back" onclick="goBack()">← กลับ</button>
   </div>
 
-  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat-item">มาตราทั้งหมด: <b>50</b></div>
     <div class="stat-item">หมวดหมู่: <b>6</b></div>
@@ -459,11 +452,9 @@
     <div id="result-count">แสดง <b id="showing-count">50</b> มาตรา</div>
   </div>
 
-  <!-- MAIN CONTENT -->
   <div class="content-wrap" id="rules-list"></div>
 </section>
 
-<!-- SCROLL TOP -->
 <button id="scroll-top" onclick="scrollToTop()">↑</button>
 
 <script>
@@ -555,12 +546,7 @@ const categories = [
       { no:48, sev:"warn",  title:"การยุติภารกิจก่อนกำหนด", desc:"การออกจากเซิร์ฟเวอร์ระหว่างภารกิจโดยไม่แจ้งเหตุผลจะส่งผลต่อคะแนนความน่าเชื่อถือของสมาชิก", tags:["warn","gameplay"] },
       { no:49, sev:"honor", title:"กฎการเกษียณอายุราชการ", desc:"สมาชิกที่ต้องการลาออกอย่างมีเกียรติสามารถยื่นขอสถานะ 'Veteran' ได้หลังจากมีชั่วโมงปฏิบัติงานมากกว่า 200 ชั่วโมง", tags:["honor"] },
       { no:50, sev:"honor", title:"คำปฏิญาณของทหาร", desc:"สมาชิกทุกคนต้องยึดมั่นในคำปฏิญาณ: 'ข้าพเจ้าจะรับใช้หน่วยด้วยความซื่อสัตย์ กล้าหาญ และเสียสละ เพื่อเกียรติยศของทหารไทย'", tags:["honor"] },
-    
     ]
-  }
-    ]
-    
-  
   }
 ];
 
@@ -572,6 +558,8 @@ let currentSearch = '';
 
 function renderRules(search='', filter='all') {
   const container = document.getElementById('rules-list');
+  if (!container) return; // ป้องกัน Error หากไม่เจอ Element
+  
   let totalShown = 0;
   let html = '';
 
@@ -580,11 +568,11 @@ function renderRules(search='', filter='all') {
       const matchFilter = filter === 'all' || r.sev === filter || r.tags.includes(filter);
       const q = search.toLowerCase();
       const matchSearch = !q ||
-        r.title.includes(q) ||
-        r.desc.includes(q) ||
+        r.title.toLowerCase().includes(q) ||
+        r.desc.toLowerCase().includes(q) ||
         ('มาตรา' + r.no).includes(q) ||
         String(r.no).includes(q) ||
-        r.tags.some(t => t.includes(q));
+        r.tags.some(t => t.toLowerCase().includes(q));
       return matchFilter && matchSearch;
     });
 
@@ -599,7 +587,7 @@ function renderRules(search='', filter='all') {
 
     catRules.forEach((r, i) => {
       const tagHtml = r.tags.map(t => `<span class="tag tag-${t}">${tagLabel(t)}</span>`).join('');
-      html += `<div class="rule-card sev-${r.sev} fade-in" style="animation-delay:${i*0.04}s">
+      html += `<div class="rule-card sev-${r.sev} fade-in" style="animation-delay:${i*0.02}s">
         <div class="rule-num">${String(r.no).padStart(2,'0')}</div>
         <div class="rule-body">
           <div class="rule-title">มาตรา ${r.no} — ${r.title}</div>
@@ -619,7 +607,11 @@ function renderRules(search='', filter='all') {
   }
 
   container.innerHTML = html;
-  document.getElementById('showing-count').textContent = totalShown;
+  
+  const showingCountEl = document.getElementById('showing-count');
+  if (showingCountEl) {
+    showingCountEl.textContent = totalShown;
+  }
 }
 
 function tagLabel(t) {
@@ -635,14 +627,14 @@ function doSearch(val) {
 function setFilter(val, btn) {
   currentFilter = val;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
   renderRules(currentSearch, currentFilter);
 }
 
 function enterRules() {
   document.getElementById('landing').style.display = 'none';
   document.getElementById('rules-page').style.display = 'block';
-  renderRules();
+  renderRules('', 'all'); // รีเซ็ตการแสดงผลเมื่อกดเข้าหน้ากฎ
   window.scrollTo(0,0);
 }
 
@@ -659,7 +651,9 @@ function scrollToTop() {
 // Scroll-to-top button
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('scroll-top');
-  btn.classList.toggle('show', window.scrollY > 400);
+  if (btn) {
+    btn.classList.toggle('show', window.scrollY > 400);
+  }
 });
 </script>
 </body>
