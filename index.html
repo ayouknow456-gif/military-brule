@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กฎระเบียบ | Royal Thai Military - Roblox</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --dark: #0a0c0f;
+    --dark2: #111418;
+    --dark3: #181d24;
+    --panel: #1a2030;
+    --border: rgba(201,168,76,0.25);
+    --green: #2a4a2a;
+    --green-bright: #4caf50;
+    --red: #c0392b;
+    --text: #e8e0cc;
+    --text-dim: #8a8070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,168,76,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,168,76,0.04) 40px);
+    pointer-events: none;
+  }
+
+  /* ─── LANDING PAGE ─── */
+  #landing {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .emblem {
+    width: 120px; height: 120px;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2rem;
+    position: relative;
+    background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 70%);
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+  .emblem::before {
+    content: '';
+    position: absolute; inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.3);
+    animation: pulse-ring 3s ease-in-out infinite 0.5s;
+  }
+  .emblem-icon { font-size: 4rem; }
+
+  @keyframes pulse-ring {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.3); }
+    50% { box-shadow: 0 0 30px 10px rgba(201,168,76,0.1); }
+  }
+
+  .rank-badge {
+    font-family: 'Chakra Petch', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .title-main {
+    font-family: 'Chakra Petch', monospace;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.1;
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    margin-bottom: 0.3rem;
+  }
+  .title-sub {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    color: var(--text-dim);
+    margin-bottom: 0.6rem;
+  }
+  .title-en {
+    font-family: 'Chakra Petch', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: rgba(201,168,76,0.5);
+    margin-bottom: 3rem;
+  }
+
+  .divider {
+    width: 200px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
+  }
+
+  .info-row {
+    display: flex; gap: 2rem; justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .info-chip {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-family: 'Chakra Petch', monospace;
+  }
+  .info-chip span { color: var(--text-dim); font-size: 0.75rem; margin-right: 0.4rem; }
+
+  .btn-start {
+    position: relative;
+    padding: 1rem 3.5rem;
+    background: linear-gradient(135deg, #c9a84c 0%, #8a6a1a 50%, #c9a84c 100%);
+    background-size: 200% 200%;
+    border: none; border-radius: 4px;
+    font-family: 'Chakra Petch', monospace;
+    font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #0a0c0f;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: shimmer 3s linear infinite;
+    box-shadow: 0 4px 30px rgba(201,168,76,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+  .btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(201,168,76,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .btn-start:active { transform: translateY(0); }
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .warning-box {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(192,57,43,0.4);
+    background: rgba(192,57,43,0.06);
+    padding: 0.9rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #e88;
+    max-width: 500px;
+  }
+  .warning-box strong { color: #f55; }
+
+  /* ─── RULES PAGE ─── */
+  #rules-page {
+    display: none;
+    position: relative; z-index: 1;
+    min-height: 100vh;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,12,15,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .topbar-logo {
+    font-family: 'Chakra Petch', monospace;
+    font-weight: 700; font-size: 0.95rem;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .topbar-logo small {
+    display: block; font-size: 0.65rem; letter-spacing: 0.2em;
+    color: var(--text-dim); font-weight: 400;
+  }
+
+  .search-wrap {
+    flex: 1; min-width: 220px;
+    position: relative;
+  }
+  .search-icon {
+    position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%);
+    color: var(--gold); font-size: 1rem; pointer-events: none;
+  }
+  #search-input {
+    width: 100%;
+    background: rgba(201,168,76,0.07);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    color: var(--text);
+    font-family: 'Sarabun', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  #search-input::placeholder { color: var(--text-dim); }
+  #search-input:focus {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.12);
+  }
+
+  .filter-btns {
+    display: flex; gap: 0.4rem; flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    background: transparent;
+    border-radius: 3px;
+    color: var(--text-dim);
+    font-family: 'Sarabun', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+
+  .btn-back {
+    padding: 0.45rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(192,57,43,0.5);
+    border-radius: 3px;
+    color: #e88;
+    font-family: 'Chakra Petch', monospace;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-back:hover { background: rgba(192,57,43,0.15); border-color: #e44; }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--dark3);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    display: flex; gap: 1.5rem; align-items: center;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    font-family: 'Chakra Petch', monospace;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+  .stat-item b { color: var(--gold); }
+  #result-count { font-size: 0.8rem; color: var(--text-dim); margin-left: auto; }
+
+  /* CONTENT AREA */
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* CATEGORY HEADER */
+  .category-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 2.5rem 0 1rem;
+  }
+  .category-header:first-child { margin-top: 0; }
+  .cat-line { flex: 1; height: 1px; background: var(--border); }
+  .cat-label {
+    font-family: 'Chakra Petch', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    background: var(--dark);
+    padding: 0 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* RULE CARD */
+  .rule-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 0.7rem;
+    display: flex; gap: 1rem;
+    transition: all 0.2s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .rule-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--gold);
+    transition: width 0.2s;
+  }
+  .rule-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(26,32,48,0.9);
+    transform: translateX(2px);
+    box-shadow: -4px 0 20px rgba(201,168,76,0.1);
+  }
+  .rule-card.highlight {
+    border-left-color: var(--gold-light);
+    background: rgba(201,168,76,0.08);
+    box-shadow: 0 0 20px rgba(201,168,76,0.15);
+  }
+
+  /* severity colors */
+  .rule-card.sev-ban   { border-left-color: #e74c3c; }
+  .rule-card.sev-ban::before { background: #e74c3c; }
+  .rule-card.sev-warn  { border-left-color: #e67e22; }
+  .rule-card.sev-warn::before { background: #e67e22; }
+  .rule-card.sev-duty  { border-left-color: #2980b9; }
+  .rule-card.sev-duty::before { background: #2980b9; }
+  .rule-card.sev-honor { border-left-color: var(--gold); }
+
+  .rule-num {
+    font-family: 'Chakra Petch', monospace;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--gold);
+    min-width: 48px;
+    line-height: 1;
+  }
+  .rule-body { flex: 1; }
+  .rule-title {
+    font-size: 1rem; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+  .rule-desc {
+    font-size: 0.88rem; font-weight: 300;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .rule-tags {
+    display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap;
+  }
+  .tag {
+    font-family: 'Chakra Petch', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+  .tag-ban   { background: rgba(231,76,60,0.15); color: #e74c3c; border: 1px solid rgba(231,76,60,0.3); }
+  .tag-warn  { background: rgba(230,126,34,0.15); color: #e67e22; border: 1px solid rgba(230,126,34,0.3); }
+  .tag-duty  { background: rgba(41,128,185,0.15); color: #2980b9; border: 1px solid rgba(41,128,185,0.3); }
+  .tag-honor { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid var(--border); }
+  .tag-gameplay { background: rgba(46,204,113,0.12); color: #2ecc71; border: 1px solid rgba(46,204,113,0.25); }
+
+  /* NO RESULT */
+  .no-result {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-dim);
+  }
+  .no-result .icon { font-size: 3rem; margin-bottom: 1rem; }
+  .no-result h3 { font-family: 'Chakra Petch', monospace; color: var(--text); margin-bottom: 0.5rem; }
+
+  /* SCROLL TO TOP */
+  #scroll-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 44px; height: 44px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none; align-items: center; justify-content: center;
+    transition: all 0.2s; z-index: 200;
+  }
+  #scroll-top:hover { background: rgba(201,168,76,0.15); }
+  #scroll-top.show { display: flex; }
+
+  /* FADE IN */
+  .fade-in { animation: fadeIn 0.5s ease forwards; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+
+  /* RESPONSIVE */
+  @media(max-width:600px) {
+    .filter-btns { display: none; }
+    .topbar { gap: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ LANDING PAGE ══════════ -->
+<section id="landing">
+  <div class="emblem">
+    <div class="emblem-icon">⚔️</div>
+  </div>
+  <div class="rank-badge">Royal Thai Military · Roblox Official</div>
+  <h1 class="title-main">กฎระเบียบ<br>ทหารไทย</h1>
+  <p class="title-sub">ระเบียบข้อบังคับและจรรยาบรรณ</p>
+  <p class="title-en">THAI MILITARY REGULATION HANDBOOK v2.5</p>
+  <div class="divider"></div>
+  <div class="info-row">
+    <div class="info-chip"><span>ฉบับ</span>2025</div>
+    <div class="info-chip"><span>มาตรา</span>50 ข้อ</div>
+    <div class="info-chip"><span>สถานะ</span>มีผลบังคับใช้</div>
+  </div>
+  <button class="btn-start" onclick="enterRules()">⚡ เริ่มดูกฎระเบียบ</button>
+  <div class="warning-box">
+    <strong>⚠ คำเตือน:</strong> ผู้ฝ่าฝืนกฎระเบียบจะได้รับโทษตามมาตราที่กำหนด รวมถึงการไล่ออกจากหน่วย
+  </div>
+</section>
+
+<!-- ══════════ RULES PAGE ══════════ -->
+<section id="rules-page">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-logo">⚔️ RTM-RBX<small>THAI MILITARY</small></div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="ค้นหามาตรา / คำสำคัญ..." oninput="doSearch(this.value)">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setFilter('all',this)">ทั้งหมด</button>
+      <button class="filter-btn" onclick="setFilter('ban',this)">🔴 ข้อห้าม</button>
+      <button class="filter-btn" onclick="setFilter('warn',this)">🟠 คำเตือน</button>
+      <button class="filter-btn" onclick="setFilter('duty',this)">🔵 หน้าที่</button>
+      <button class="filter-btn" onclick="setFilter('honor',this)">🟡 เกียรติยศ</button>
+    </div>
+    <button class="btn-back" onclick="goBack()">← กลับ</button>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">มาตราทั้งหมด: <b>50</b></div>
+    <div class="stat-item">หมวดหมู่: <b>6</b></div>
+    <div class="stat-item">ปรับปรุงล่าสุด: <b>2025</b></div>
+    <div id="result-count">แสดง <b id="showing-count">50</b> มาตรา</div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content-wrap" id="rules-list"></div>
+</section>
+
+<!-- SCROLL TOP -->
+<button id="scroll-top" onclick="scrollToTop()">↑</button>
+
+<script>
+// ══════════════════════════════════════════
+//  DATA – 50 กฎระเบียบ
+// ══════════════════════════════════════════
+const categories = [
+  {
+    id: "general",
+    label: "หมวดที่ 1 — ระเบียบทั่วไปและวินัย",
+    rules: [
+      { no:1,  sev:"honor", title:"การเคารพและการทักทาย", desc:"สมาชิกทุกคนต้องแสดงการเคารพต่อผู้บังคับบัญชาทุกครั้งที่พบ โดยพิมพ์ /salute หรือกดปุ่มที่กำหนด", tags:["honor","duty"] },
+      { no:2,  sev:"duty",  title:"การแต่งกายสม่ำเสมอ", desc:"สมาชิกต้องสวมใส่ชุดยูนิฟอร์มหน่วยที่ถูกต้องตามยศของตนตลอดเวลาที่อยู่ในพื้นที่ฐานทัพ", tags:["duty"] },
+      { no:3,  sev:"ban",   title:"ห้ามใช้ภาษาหยาบคาย", desc:"ห้ามใช้คำหยาบ คำสบถ หรือภาษาที่ไม่สุภาพในทุกช่องทางการสื่อสาร ไม่ว่าจะเป็น chat หรือ voice chat", tags:["ban"] },
+      { no:4,  sev:"ban",   title:"ห้ามแกล้งทำเป็นผู้บังคับบัญชา", desc:"ห้ามปลอมตัวหรืออ้างว่าตนเองมียศสูงกว่าความเป็นจริง การกระทำนี้ถือเป็นการฉ้อโกงและมีโทษไล่ออกทันที", tags:["ban"] },
+      { no:5,  sev:"duty",  title:"การลงทะเบียนชื่อ", desc:"สมาชิกต้องตั้งชื่อ Roblox ให้ตรงกับรูปแบบที่หน่วยกำหนด เช่น [RTM] ชื่อ_ยศ เพื่อให้ง่ายต่อการระบุตัวตน", tags:["duty"] },
+      { no:6,  sev:"warn",  title:"การขาด Formation โดยไม่มีเหตุผล", desc:"สมาชิกที่ขาด Formation เกิน 3 ครั้งโดยไม่แจ้งล่วงหน้าจะได้รับการตักเตือนอย่างเป็นทางการ", tags:["warn"] },
+      { no:7,  sev:"duty",  title:"การแจ้งลา", desc:"หากไม่สามารถเข้าร่วมกิจกรรมได้ต้องแจ้งผู้บังคับบัญชาล่วงหน้าอย่างน้อย 24 ชั่วโมง ผ่านช่องทาง Discord ที่กำหนด", tags:["duty"] },
+      { no:8,  sev:"honor", title:"ความภักดีต่อหน่วย", desc:"สมาชิกต้องให้ความจงรักภักดีต่อหน่วยและไม่กระทำการใดที่เสื่อมเสียชื่อเสียงของหน่วยทั้งในและนอก Roblox", tags:["honor"] },
+    ]
+  },
+  {
+    id: "combat",
+    label: "หมวดที่ 2 — กฎการรบและการปฏิบัติภารกิจ",
+    rules: [
+      { no:9,  sev:"ban",   title:"ห้ามยิงพวกเดียวกัน (TK)", desc:"การยิงสมาชิกร่วมหน่วยโดยเจตนา (Team Kill) เป็นความผิดร้ายแรง โทษขึ้นอยู่กับดุลพินิจของผู้บัญชาการ", tags:["ban","gameplay"] },
+      { no:10, sev:"ban",   title:"ห้ามยิงก่อนสัญญาณ", desc:"สมาชิกต้องรอสัญญาณจากผู้นำก่อนเปิดฉากยิง ห้ามยิงโดยพลการที่อาจทำให้ภารกิจล้มเหลว", tags:["ban","gameplay"] },
+      { no:11, sev:"duty",  title:"การรายงานตำแหน่งศัตรู", desc:"สมาชิกต้องรายงานตำแหน่งศัตรูที่พบเห็นผ่านระบบ comms ทันทีในรูปแบบ: ทิศทาง-ระยะ-จำนวน", tags:["duty","gameplay"] },
+      { no:12, sev:"duty",  title:"การใช้ยานพาหนะ", desc:"ต้องได้รับอนุญาตจากผู้บังคับบัญชาก่อนนำยานพาหนะออกใช้งาน ห้ามนำยานพาหนะออกนอกพื้นที่ปฏิบัติการโดยไม่ได้รับคำสั่ง", tags:["duty","gameplay"] },
+      { no:13, sev:"warn",  title:"การไม่ปฏิบัติตามคำสั่ง", desc:"การขัดคำสั่งผู้บังคับบัญชาในระหว่างภารกิจถือเป็นความผิดร้ายแรง อาจส่งผลต่อการเลื่อนยศ", tags:["warn"] },
+      { no:14, sev:"ban",   title:"ห้ามใช้ Exploit หรือ Hack", desc:"ห้ามใช้โปรแกรมช่วยเหลือ สคริปต์ผิดกฎ หรือช่องโหว่ใดๆ ของเกม การตรวจพบจะถูกแบนถาวรทันที", tags:["ban","gameplay"] },
+      { no:15, sev:"duty",  title:"การปฐมพยาบาลเพื่อนร่วมรบ", desc:"สมาชิกที่มีไอเทม Medkit ต้องช่วยเหลือสมาชิกที่บาดเจ็บก่อนการสู้รบต่อ เว้นแต่สถานการณ์จะอันตรายเกินไป", tags:["duty","gameplay"] },
+      { no:16, sev:"ban",   title:"ห้ามยอมจำนนโดยไม่ได้รับคำสั่ง", desc:"ห้ามยอมแพ้หรือวางอาวุธระหว่างภารกิจโดยไม่ได้รับคำสั่งจากผู้บัญชาการ ถือเป็นการละทิ้งหน้าที่", tags:["ban"] },
+    ]
+  },
+  {
+    id: "base",
+    label: "หมวดที่ 3 — ระเบียบในฐานทัพ",
+    rules: [
+      { no:17, sev:"ban",   title:"ห้ามเข้าพื้นที่หวงห้ามโดยไม่ได้รับอนุญาต", desc:"พื้นที่ที่ติดป้าย RESTRICTED หรือ NO ENTRY ห้ามเข้าโดยเด็ดขาด เว้นแต่จะมียศและใบอนุญาตที่เหมาะสม", tags:["ban"] },
+      { no:18, sev:"duty",  title:"การยืนยามและการเวร", desc:"สมาชิกที่ได้รับมอบหมายให้ยามต้องอยู่ประจำตำแหน่งตลอดเวลาที่กำหนด ห้ามออกจากจุดโดยไม่มีคนสับเปลี่ยน", tags:["duty"] },
+      { no:19, sev:"warn",  title:"การวิ่งในพื้นที่ฐานทัพ", desc:"ในบริเวณห้องประชุม อาคารบังคับการ และพื้นที่พักผ่อน ห้ามวิ่ง ให้เดินปกติและแสดงความสุภาพ", tags:["warn"] },
+      { no:20, sev:"ban",   title:"ห้ามทำลายทรัพย์สินของหน่วย", desc:"การทำลาย ขโมย หรือนำทรัพย์สินของหน่วยออกจากฐานโดยไม่ได้รับอนุญาตถือเป็นความผิดร้ายแรง", tags:["ban"] },
+      { no:21, sev:"duty",  title:"การรายงานตัวต่อผู้บัญชาการ", desc:"เมื่อเข้าสู่ฐานทัพ สมาชิกต้องรายงานตัว (Check-in) ผ่านระบบที่กำหนดทุกครั้ง เพื่อให้ระบบนับชั่วโมงปฏิบัติงาน", tags:["duty"] },
+      { no:22, sev:"honor", title:"การดูแลรักษาอาวุธประจำกาย", desc:"สมาชิกต้องดูแลรักษาอาวุธและอุปกรณ์ที่ได้รับมอบหมายให้อยู่ในสภาพพร้อมใช้งานเสมอ", tags:["honor","duty"] },
+      { no:23, sev:"warn",  title:"การใช้สนามฝึกให้ถูกต้อง", desc:"สนามฝึกมีไว้สำหรับฝึกเท่านั้น ห้ามนำไปใช้สู้รบกันเองโดยไม่ได้รับอนุญาตจากผู้ดูแลสนาม", tags:["warn","gameplay"] },
+    ]
+  },
+  {
+    id: "rank",
+    label: "หมวดที่ 4 — ระเบียบการเลื่อนยศและโครงสร้างการบังคับบัญชา",
+    rules: [
+      { no:24, sev:"duty",  title:"การเคารพสายการบังคับบัญชา", desc:"คำสั่งจากผู้มียศสูงกว่าต้องปฏิบัติตามทันที หากมีข้อสงสัยให้แจ้งภายหลังผ่านช่องทางที่เหมาะสม", tags:["duty"] },
+      { no:25, sev:"ban",   title:"ห้ามออกคำสั่งเกินอำนาจ", desc:"สมาชิกห้ามออกคำสั่งที่เกินกว่าระดับยศของตน การแอบอ้างอำนาจมีโทษลดยศหรือไล่ออก", tags:["ban"] },
+      { no:26, sev:"honor", title:"เงื่อนไขการเลื่อนยศ", desc:"การเลื่อนยศต้องผ่านการประเมินจากผู้บังคับบัญชา มีชั่วโมงปฏิบัติงานครบตามที่กำหนด และมีความประพฤติที่ดี", tags:["honor"] },
+      { no:27, sev:"ban",   title:"ห้ามซื้อขายหรือแลกเปลี่ยนยศ", desc:"การซื้อ ขาย หรือแลกเปลี่ยนยศโดยใช้เงิน Robux หรือสิ่งตอบแทนใดๆ ถือเป็นการทุจริตและมีโทษสูงสุด", tags:["ban"] },
+      { no:28, sev:"duty",  title:"หน้าที่ของผู้บัญชาการในสนามรบ", desc:"ผู้บัญชาการต้องวางแผนภารกิจ ดูแลทีม และรับผิดชอบต่อผลลัพธ์ของภารกิจทุกครั้ง", tags:["duty"] },
+      { no:29, sev:"warn",  title:"การท้าทายคำสั่งอย่างเปิดเผย", desc:"การวิจารณ์หรือท้าทายคำสั่งต่อหน้าสมาชิกคนอื่นถือเป็นการบ่อนทำลายวินัย ให้แจ้งข้อกังวลผ่านช่องทางเอกชนเสมอ", tags:["warn"] },
+      { no:30, sev:"honor", title:"การยอมรับในชัยชนะและความพ่ายแพ้", desc:"สมาชิกต้องแสดงออกอย่างมีน้ำใจนักกีฬาทั้งในยามชนะและแพ้ ห้ามดูถูกหรือเยาะเย้ยฝ่ายตรงข้าม", tags:["honor"] },
+    ]
+  },
+  {
+    id: "conduct",
+    label: "หมวดที่ 5 — จรรยาบรรณและพฤติกรรมออนไลน์",
+    rules: [
+      { no:31, sev:"ban",   title:"ห้ามคุกคามหรือสร้างความเดือดร้อน", desc:"ห้ามคุกคาม กลั่นแกล้ง หรือสร้างความเดือดร้อนให้สมาชิกคนใดในทุกช่องทาง", tags:["ban"] },
+      { no:32, sev:"ban",   title:"ห้ามเผยแพร่ข้อมูลส่วนตัว", desc:"ห้าม Doxx หรือเปิดเผยข้อมูลส่วนตัวของสมาชิกคนใด เช่น ชื่อจริง ที่อยู่ หรือข้อมูลโซเชียลมีเดีย", tags:["ban"] },
+      { no:33, sev:"ban",   title:"ห้ามโพสต์เนื้อหาไม่เหมาะสม", desc:"ห้ามส่ง แชร์ หรือโพสต์เนื้อหาที่มีความรุนแรง ลามก หรือเนื้อหาสำหรับผู้ใหญ่ในช่องทางใดๆ ของหน่วย", tags:["ban"] },
+      { no:34, sev:"duty",  title:"การรักษาความลับทางทหาร", desc:"ข้อมูลภายในหน่วย แผนภารกิจ และกลยุทธ์ถือเป็นความลับ ห้ามนำไปเปิดเผยต่อบุคคลภายนอกหรือกลุ่มศัตรู", tags:["duty"] },
+      { no:35, sev:"warn",  title:"การพูดคุยเรื่องการเมืองหรือศาสนา", desc:"ห้ามพูดคุยเรื่องการเมืองหรือศาสนาในช่องทางหลักของหน่วย เนื่องจากอาจก่อให้เกิดความขัดแย้ง", tags:["warn"] },
+      { no:36, sev:"honor", title:"การใช้ภาษาไทยในการสื่อสาร", desc:"การสื่อสารหลักภายในหน่วยให้ใช้ภาษาไทย เว้นแต่จะมีสมาชิกที่ไม่เข้าใจภาษาไทยในวงสนทนา", tags:["honor"] },
+      { no:37, sev:"ban",   title:"ห้ามสปอยล์หรือรบกวน Roleplay", desc:"ห้ามรบกวน หรือทำลายบรรยากาศการ Roleplay ของผู้อื่นโดยการทำสิ่งที่ไม่เหมาะสมหรือแกล้งทำ", tags:["ban","gameplay"] },
+      { no:38, sev:"duty",  title:"การรายงานผู้ละเมิดกฎ", desc:"สมาชิกที่พบเห็นการละเมิดกฎมีหน้าที่รายงานต่อผู้บังคับบัญชาหรือทีมงาน โดยแนบหลักฐานประกอบ", tags:["duty"] },
+    ]
+  },
+  {
+    id: "special",
+    label: "หมวดที่ 6 — กฎพิเศษและบทลงโทษ",
+    rules: [
+      { no:39, sev:"ban",   title:"ห้ามก่อกบฏหรือสนับสนุนฝ่ายตรงข้าม", desc:"การให้ความช่วยเหลือหรือข้อมูลแก่กลุ่มศัตรูถือเป็นการทรยศ มีโทษไล่ออกและ Blacklist ตลอดกาล", tags:["ban"] },
+      { no:40, sev:"ban",   title:"ห้ามสมัครเป็นสมาชิกหน่วยศัตรูในขณะที่ยังอยู่ในหน่วย", desc:"สมาชิกสามารถเป็นสมาชิกได้เพียงหน่วยเดียว การค้นพบว่าเป็น Double Agent มีโทษสูงสุด", tags:["ban"] },
+      { no:41, sev:"warn",  title:"การใช้สิทธิ์ร้องเรียน", desc:"สมาชิกมีสิทธิ์ร้องเรียนผู้บังคับบัญชาผ่านระบบที่กำหนด การร้องเรียนอย่างเป็นทางการจะได้รับการพิจารณาภายใน 72 ชั่วโมง", tags:["warn","duty"] },
+      { no:42, sev:"honor", title:"กฎการรับนักเรียนนายร้อย (Cadet)", desc:"นักเรียนนายร้อยต้องผ่านการฝึกขั้นพื้นฐาน (Basic Training) ก่อนจึงจะได้รับยศอย่างเป็นทางการ", tags:["honor","duty"] },
+      { no:43, sev:"duty",  title:"การเข้าร่วม Event พิเศษ", desc:"Event ที่ระบุว่า MANDATORY ทุกสมาชิกที่ Active ต้องเข้าร่วม หากไม่สามารถเข้าร่วมได้ต้องแจ้งล่วงหน้า", tags:["duty"] },
+      { no:44, sev:"ban",   title:"ห้ามทำการ Mass Recruit โดยไม่ได้รับอนุญาต", desc:"ห้ามรับสมาชิกใหม่เข้าหน่วยจำนวนมากโดยไม่ผ่านกระบวนการคัดเลือก เว้นแต่จะได้รับอนุมัติจากผู้บัญชาการสูงสุด", tags:["ban"] },
+      { no:45, sev:"honor", title:"รางวัลและเหรียญตราเกียรติคุณ", desc:"สมาชิกที่แสดงความกล้าหาญ ความทุ่มเท หรือผลงานโดดเด่นจะได้รับเหรียญตราเกียรติคุณตามระเบียบของหน่วย", tags:["honor"] },
+      { no:46, sev:"duty",  title:"การปฏิบัติต่อเชลยศึก", desc:"ห้ามทำร้ายหรือดูถูกเชลยศึก ต้องปฏิบัติตามกฎสากลว่าด้วยการปฏิบัติต่อเชลยศึก (In-game Geneva Convention)", tags:["duty","honor"] },
+      { no:47, sev:"ban",   title:"ห้ามใช้งบประมาณหน่วยโดยไม่ได้รับอนุมัติ", desc:"Robux หรือทรัพยากรที่เป็นของกลุ่ม Roblox ต้องได้รับการอนุมัติจากฝ่ายการเงินก่อนใช้จ่ายทุกครั้ง", tags:["ban"] },
+      { no:48, sev:"warn",  title:"การยุติภารกิจก่อนกำหนด", desc:"การออกจากเซิร์ฟเวอร์ระหว่างภารกิจโดยไม่แจ้งเหตุผลจะส่งผลต่อคะแนนความน่าเชื่อถือของสมาชิก", tags:["warn","gameplay"] },
+      { no:49, sev:"honor", title:"กฎการเกษียณอายุราชการ", desc:"สมาชิกที่ต้องการลาออกอย่างมีเกียรติสามารถยื่นขอสถานะ 'Veteran' ได้หลังจากมีชั่วโมงปฏิบัติงานมากกว่า 200 ชั่วโมง", tags:["honor"] },
+      { no:50, sev:"honor", title:"คำปฏิญาณของทหาร", desc:"สมาชิกทุกคนต้องยึดมั่นในคำปฏิญาณ: 'ข้าพเจ้าจะรับใช้หน่วยด้วยความซื่อสัตย์ กล้าหาญ และเสียสละ เพื่อเกียรติยศของทหารไทย'", tags:["honor"] },
+    ]
+  }
+];
+
+// ══════════════════════════════════════════
+//  RENDER
+// ══════════════════════════════════════════
+let currentFilter = 'all';
+let currentSearch = '';
+
+function renderRules(search='', filter='all') {
+  const container = document.getElementById('rules-list');
+  let totalShown = 0;
+  let html = '';
+
+  categories.forEach(cat => {
+    let catRules = cat.rules.filter(r => {
+      const matchFilter = filter === 'all' || r.sev === filter || r.tags.includes(filter);
+      const q = search.toLowerCase();
+      const matchSearch = !q ||
+        r.title.includes(q) ||
+        r.desc.includes(q) ||
+        ('มาตรา' + r.no).includes(q) ||
+        String(r.no).includes(q) ||
+        r.tags.some(t => t.includes(q));
+      return matchFilter && matchSearch;
+    });
+
+    if (catRules.length === 0) return;
+    totalShown += catRules.length;
+
+    html += `<div class="category-header">
+      <div class="cat-line"></div>
+      <div class="cat-label">${cat.label}</div>
+      <div class="cat-line"></div>
+    </div>`;
+
+    catRules.forEach((r, i) => {
+      const tagHtml = r.tags.map(t => `<span class="tag tag-${t}">${tagLabel(t)}</span>`).join('');
+      html += `<div class="rule-card sev-${r.sev} fade-in" style="animation-delay:${i*0.04}s">
+        <div class="rule-num">${String(r.no).padStart(2,'0')}</div>
+        <div class="rule-body">
+          <div class="rule-title">มาตรา ${r.no} — ${r.title}</div>
+          <div class="rule-desc">${r.desc}</div>
+          <div class="rule-tags">${tagHtml}</div>
+        </div>
+      </div>`;
+    });
+  });
+
+  if (totalShown === 0) {
+    html = `<div class="no-result">
+      <div class="icon">🔍</div>
+      <h3>ไม่พบมาตราที่ตรงกัน</h3>
+      <p>ลองเปลี่ยนคำค้นหาหรือตัวกรองใหม่</p>
+    </div>`;
+  }
+
+  container.innerHTML = html;
+  document.getElementById('showing-count').textContent = totalShown;
+}
+
+function tagLabel(t) {
+  const map = { ban:'ข้อห้าม', warn:'คำเตือน', duty:'หน้าที่', honor:'เกียรติยศ', gameplay:'Gameplay' };
+  return map[t] || t;
+}
+
+function doSearch(val) {
+  currentSearch = val;
+  renderRules(currentSearch, currentFilter);
+}
+
+function setFilter(val, btn) {
+  currentFilter = val;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRules(currentSearch, currentFilter);
+}
+
+function enterRules() {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('rules-page').style.display = 'block';
+  renderRules();
+  window.scrollTo(0,0);
+}
+
+function goBack() {
+  document.getElementById('rules-page').style.display = 'none';
+  document.getElementById('landing').style.display = 'flex';
+  window.scrollTo(0,0);
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Scroll-to-top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scroll-top');
+  btn.classList.toggle('show', window.scrollY > 400);
+});
+</script>
+</body>
+</html>
