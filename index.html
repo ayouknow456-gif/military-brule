@@ -3,233 +3,427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>กฎระเบียบกองทัพบก (จำลอง)</title>
-
+<title>กฎระเบียบกองทัพบก (จำลอง) - ฉบับปรับปรุงใหม่</title>
+<!-- Font Awesome 6 (ไอคอน) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Google Fonts: Prompt + Sarabun -->
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Sarabun',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    background:#f5f5f5;
-    color:#222;
-    line-height:1.8;
+
+body {
+    font-family: 'Sarabun', 'Inter', sans-serif;
+    background: #f0f2f5;
+    color: #1e2a3e;
+    transition: background 0.3s ease, color 0.2s ease;
+    line-height: 1.65;
 }
-header{
-    background:#8b0000;
-    color:white;
-    padding:30px;
-    text-align:center;
-    border-bottom:6px solid gold;
+
+/* ========= DARK MODE ========= */
+body.dark {
+    background: #121826;
+    color: #eef2ff;
 }
-header h1{
-    font-size:40px;
+
+body.dark section {
+    background: #1e293b;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
-header p{
-    opacity:.9;
+
+body.dark header {
+    background: #0f172a;
+    border-bottom: 4px solid #f5b042;
 }
-nav{
-    background:#111;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
+
+body.dark nav {
+    background: #0f172a;
+    border-bottom: 1px solid #334155;
 }
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:10px;
-    font-weight:bold;
+
+body.dark nav a {
+    color: #cbd5e6;
 }
-section{
-    background:white;
-    max-width:1400px;
-    margin:20px auto;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
+
+body.dark nav a:hover {
+    background: #2d3a4e;
+    color: #ffd966;
 }
-h2{
-    color:#8b0000;
-    border-left:8px solid gold;
-    padding-left:10px;
-    margin-bottom:15px;
+
+body.dark .badge-cat {
+    background: #2d3a4e;
+    color: #ffd966;
 }
-article{
-    margin-bottom:40px;
+
+body.dark footer {
+    background: #0b1120;
+    color: #94a3b8;
 }
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:20px;
+
+body.dark h2 {
+    color: #ffd966;
+    border-left-color: #ffb347;
 }
-ol{
-    padding-left:30px;
+
+body.dark .mode-toggle {
+    background: #334155;
+    color: #ffd966;
+    border-color: #475569;
 }
-li{
-    margin-bottom:10px;
+
+/* header design */
+header {
+    background: linear-gradient(135deg, #7a1f1a 0%, #4a0e0a 100%);
+    color: white;
+    padding: 2rem 2rem;
+    text-align: center;
+    border-bottom: 5px solid #e6b422;
+    position: relative;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+header h1 i {
+    background: rgba(255,215,0,0.2);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+/* navigation sticky + glassmorph */
+nav {
+    background: rgba(20, 20, 35, 0.96);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,215,0,0.3);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+nav a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 40px;
+    transition: all 0.25s;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    background: rgba(255,255,255,0.05);
+}
+
+nav a:hover {
+    background: #f5b042;
+    color: #1e1e2a;
+    transform: translateY(-2px);
+}
+
+/* mode toggle button */
+.mode-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: white;
+    border: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 60px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    z-index: 200;
+    transition: 0.2s;
+    background: #1e2a3a;
+    color: #f5b042;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode-toggle:hover {
+    transform: scale(1.05);
+    background: #2c3e4e;
+    color: #ffcd7e;
+}
+
+/* main container */
+.container {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+    padding: 2rem 2rem;
+    transition: all 0.2s;
+    margin-bottom: 20px;
+}
+
+article {
+    margin-bottom: 2.2rem;
+}
+
+h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #a5221a;
+    border-left: 7px solid #e6b422;
+    padding-left: 20px;
+    margin-bottom: 1.5rem;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+h2 i {
+    font-size: 1.8rem;
+    color: #c97e0a;
+}
+
+/* 2-column grid สำหรับกฎหมาย */
+.regulation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 12px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.regulation-grid li {
+    background: #fef9ef;
+    margin-bottom: 6px;
+    padding: 12px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: 0.15s;
+    border: 1px solid #f0e5d2;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+body.dark .regulation-grid li {
+    background: #2d3748;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+.regulation-grid li strong {
+    color: #b45333;
+    font-weight: 700;
+    min-width: 70px;
+}
+
+body.dark .regulation-grid li strong {
+    color: #ffbc6e;
+}
+
+.regulation-grid li i {
+    color: #d97706;
+    width: 24px;
+    font-size: 1rem;
+}
+
+.badge-cat {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 60px;
+    padding: 2px 12px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+footer {
+    background: #0f1720;
+    color: #ccd6f0;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 40px;
+    border-top: 2px solid #e6b422;
+}
+
+footer p {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    background: #8b0000;
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    transition: 0.2s;
+    z-index: 190;
+    opacity: 0.8;
+}
+
+.scroll-top:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+@media (max-width: 760px) {
+    header h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    .regulation-grid { grid-template-columns: 1fr; }
+    nav a { padding: 6px 14px; font-size: 0.75rem; }
+    section { padding: 1.2rem; }
 }
 </style>
 </head>
 <body>
 
 <header>
-<h1>กฎระเบียบกองทัพบก (จำลอง)</h1>
-<p>ระเบียบการปฏิบัติภายในเกม ROBLOX Military Roleplay</p>
+<h1><i class="fas fa-shield-halbed"></i> กฎระเบียบกองทัพบก (จำลอง) <i class="fas fa-landmark"></i></h1>
+<p>ระเบียบการปฏิบัติภายในเกม ROBLOX Military Roleplay | ฉบับสมบูรณ์ 100 มาตรา</p>
 </header>
 
 <nav>
-<a href="#murder">การฆาตกรรม</a>
-<a href="#vehicle">พาหนะ</a>
-<a href="#admin">MOD / HD ADMIN</a>
-<a href="#speech">การพูด</a>
-<a href="#adult">อนาจาร</a>
+<a href="#murder"><i class="fas fa-skull-crossbones"></i> ฆาตกรรม</a>
+<a href="#vehicle"><i class="fas fa-truck"></i> พาหนะ</a>
+<a href="#admin"><i class="fas fa-user-shield"></i> MOD/ADMIN</a>
+<a href="#speech"><i class="fas fa-comment-dots"></i> การพูด</a>
+<a href="#adult"><i class="fas fa-ban"></i> อนาจาร</a>
 </nav>
 
+<div class="container">
 <section>
 
 <article id="murder">
-<h2>หมวดที่ 1 : การฆาตกรรมและการใช้อาวุธ</h2>
-<ol>
-<li>มาตรา 1 ห้ามสังหารผู้เล่นโดยไม่มีเหตุผล RP</li>
-<li>มาตรา 2 ห้าม Random Kill (RDM)</li>
-<li>มาตรา 3 ห้ามฆ่าภายในพื้นที่ปลอดภัย</li>
-<li>มาตรา 4 ห้ามใช้อาวุธเพื่อความบันเทิง</li>
-<li>มาตรา 5 ห้ามยิงผู้เล่นใหม่</li>
-<li>มาตรา 6 ต้องมีคำเตือนก่อนเปิดฉากยิง</li>
-<li>มาตรา 7 ห้ามสังหารผู้บังคับบัญชาโดยไม่มี RP</li>
-<li>มาตรา 8 ห้ามลอบสังหารในพื้นที่ประชุม</li>
-<li>มาตรา 9 ห้ามฆ่าซ้ำต่อเนื่อง</li>
-<li>มาตรา 10 ห้าม Spawn Kill</li>
-<li>มาตรา 11 ห้ามยิงขณะถูกควบคุมตัว</li>
-<li>มาตรา 12 ห้ามใช้บัคในการโจมตี</li>
-<li>มาตรา 13 ห้ามใช้อาวุธผิดประเภท</li>
-<li>มาตรา 14 ห้ามยิงยานพาหนะฝ่ายเดียวกัน</li>
-<li>มาตรา 15 ห้ามยิงในพิธีการ</li>
-<li>มาตรา 16 ห้ามฆ่าเพื่อแย่งยศ</li>
-<li>มาตรา 17 ห้าม Team Kill</li>
-<li>มาตรา 18 ห้ามยิงระหว่างฝึก</li>
-<li>มาตรา 19 ห้ามใช้อาวุธในค่ายโดยไม่ได้รับอนุญาต</li>
-<li>มาตรา 20 ผู้ฝ่าฝืนมีโทษตามดุลยพินิจแอดมิน</li>
-</ol>
+<h2><i class="fas fa-gavel"></i> หมวดที่ 1 : การฆาตกรรมและการใช้อาวุธ</h2>
+<ul class="regulation-grid" id="murder-list">
+<li><strong>มาตรา 1</strong> ห้ามสังหารผู้เล่นโดยไม่มีเหตุผล RP</li><li><strong>มาตรา 2</strong> ห้าม Random Kill (RDM)</li><li><strong>มาตรา 3</strong> ห้ามฆ่าภายในพื้นที่ปลอดภัย</li><li><strong>มาตรา 4</strong> ห้ามใช้อาวุธเพื่อความบันเทิง</li><li><strong>มาตรา 5</strong> ห้ามยิงผู้เล่นใหม่</li><li><strong>มาตรา 6</strong> ต้องมีคำเตือนก่อนเปิดฉากยิง</li><li><strong>มาตรา 7</strong> ห้ามสังหารผู้บังคับบัญชาโดยไม่มี RP</li><li><strong>มาตรา 8</strong> ห้ามลอบสังหารในพื้นที่ประชุม</li><li><strong>มาตรา 9</strong> ห้ามฆ่าซ้ำต่อเนื่อง</li><li><strong>มาตรา 10</strong> ห้าม Spawn Kill</li><li><strong>มาตรา 11</strong> ห้ามยิงขณะถูกควบคุมตัว</li><li><strong>มาตรา 12</strong> ห้ามใช้บัคในการโจมตี</li><li><strong>มาตรา 13</strong> ห้ามใช้อาวุธผิดประเภท</li><li><strong>มาตรา 14</strong> ห้ามยิงยานพาหนะฝ่ายเดียวกัน</li><li><strong>มาตรา 15</strong> ห้ามยิงในพิธีการ</li><li><strong>มาตรา 16</strong> ห้ามฆ่าเพื่อแย่งยศ</li><li><strong>มาตรา 17</strong> ห้าม Team Kill</li><li><strong>มาตรา 18</strong> ห้ามยิงระหว่างฝึก</li><li><strong>มาตรา 19</strong> ห้ามใช้อาวุธในค่ายโดยไม่ได้รับอนุญาต</li><li><strong>มาตรา 20</strong> ผู้ฝ่าฝืนมีโทษตามดุลยพินิจแอดมิน</li>
+</ul>
 </article>
 
 <article id="vehicle">
-<h2>หมวดที่ 2 : พาหนะทางทหาร</h2>
-<ol>
-<li>มาตรา 21 ห้ามขับรถโดยไม่มีสิทธิ์</li>
-<li>มาตรา 22 ห้ามขโมยรถราชการ</li>
-<li>มาตรา 23 ห้ามชนผู้เล่นโดยเจตนา</li>
-<li>มาตรา 24 ห้ามขับรถนอกพื้นที่กำหนด</li>
-<li>มาตรา 25 ห้ามนำรถถังเข้าพื้นที่ปลอดภัย</li>
-<li>มาตรา 26 ห้ามจอดขวางทาง</li>
-<li>มาตรา 27 ห้ามใช้รถเพื่อก่อกวน</li>
-<li>มาตรา 28 ห้ามนำรถออกจากฐานโดยไม่ได้รับอนุญาต</li>
-<li>มาตรา 29 ผู้ขับต้องปฏิบัติตามคำสั่งผู้บังคับบัญชา</li>
-<li>มาตรา 30 ห้ามแข่งรถ</li>
-<li>มาตรา 31 ห้ามชนอากาศยาน</li>
-<li>มาตรา 32 ห้ามใช้รถเพื่อฆ่าผู้อื่น</li>
-<li>มาตรา 33 ห้ามขับย้อนศร</li>
-<li>มาตรา 34 ห้ามขับด้วยความประมาท</li>
-<li>มาตรา 35 ห้ามขนส่งผู้ต้องหาโดยไม่มีคำสั่ง</li>
-<li>มาตรา 36 ห้ามจอดรถกลางลานสวนสนาม</li>
-<li>มาตรา 37 ห้ามดัดแปลงยานพาหนะ</li>
-<li>มาตรา 38 ห้ามใช้ยานพาหนะส่วนตัวอ้างสิทธิ์ราชการ</li>
-<li>มาตรา 39 ต้องคืนรถหลังเสร็จภารกิจ</li>
-<li>มาตรา 40 ผู้ฝ่าฝืนอาจถูกพักสิทธิ์การใช้รถ</li>
-</ol>
+<h2><i class="fas fa-car-side"></i> หมวดที่ 2 : พาหนะทางทหาร</h2>
+<ul class="regulation-grid" id="vehicle-list">
+<li><strong>มาตรา 21</strong> ห้ามขับรถโดยไม่มีสิทธิ์</li><li><strong>มาตรา 22</strong> ห้ามขโมยรถราชการ</li><li><strong>มาตรา 23</strong> ห้ามชนผู้เล่นโดยเจตนา</li><li><strong>มาตรา 24</strong> ห้ามขับรถนอกพื้นที่กำหนด</li><li><strong>มาตรา 25</strong> ห้ามนำรถถังเข้าพื้นที่ปลอดภัย</li><li><strong>มาตรา 26</strong> ห้ามจอดขวางทาง</li><li><strong>มาตรา 27</strong> ห้ามใช้รถเพื่อก่อกวน</li><li><strong>มาตรา 28</strong> ห้ามนำรถออกจากฐานโดยไม่ได้รับอนุญาต</li><li><strong>มาตรา 29</strong> ผู้ขับต้องปฏิบัติตามคำสั่งผู้บังคับบัญชา</li><li><strong>มาตรา 30</strong> ห้ามแข่งรถ</li><li><strong>มาตรา 31</strong> ห้ามชนอากาศยาน</li><li><strong>มาตรา 32</strong> ห้ามใช้รถเพื่อฆ่าผู้อื่น</li><li><strong>มาตรา 33</strong> ห้ามขับย้อนศร</li><li><strong>มาตรา 34</strong> ห้ามขับด้วยความประมาท</li><li><strong>มาตรา 35</strong> ห้ามขนส่งผู้ต้องหาโดยไม่มีคำสั่ง</li><li><strong>มาตรา 36</strong> ห้ามจอดรถกลางลานสวนสนาม</li><li><strong>มาตรา 37</strong> ห้ามดัดแปลงยานพาหนะ</li><li><strong>มาตรา 38</strong> ห้ามใช้ยานพาหนะส่วนตัวอ้างสิทธิ์ราชการ</li><li><strong>มาตรา 39</strong> ต้องคืนรถหลังเสร็จภารกิจ</li><li><strong>มาตรา 40</strong> ผู้ฝ่าฝืนอาจถูกพักสิทธิ์การใช้รถ</li>
+</ul>
 </article>
 
 <article id="admin">
-<h2>หมวดที่ 3 : MOD / HD ADMIN</h2>
-<ol>
-<li>มาตรา 41 ห้ามขอแอดมิน</li>
-<li>มาตรา 42 ห้ามปลอมตัวเป็นแอดมิน</li>
-<li>มาตรา 43 ห้ามอ้างอำนาจแอดมิน</li>
-<li>มาตรา 44 ห้ามใช้คำสั่งเพื่อประโยชน์ส่วนตน</li>
-<li>มาตรา 45 ห้ามสั่ง Kick โดยไม่มีเหตุผล</li>
-<li>มาตรา 46 ห้ามใช้ Fly รบกวนผู้อื่น</li>
-<li>มาตรา 47 ห้ามใช้ God Mode</li>
-<li>มาตรา 48 ห้ามใช้ Noclip</li>
-<li>มาตรา 49 ห้าม Abuse คำสั่ง</li>
-<li>มาตรา 50 ห้ามแจกยศโดยพลการ</li>
-<li>มาตรา 51 ต้องบันทึกหลักฐานก่อนลงโทษ</li>
-<li>มาตรา 52 ต้องใช้ถ้อยคำสุภาพ</li>
-<li>มาตรา 53 ห้ามแบนโดยไม่มีเหตุผล</li>
-<li>มาตรา 54 ห้ามใช้อำนาจข่มขู่</li>
-<li>มาตรา 55 ห้ามเผยข้อมูลแอดมิน</li>
-<li>มาตรา 56 ห้ามแก้ไขข้อมูลผู้เล่น</li>
-<li>มาตรา 57 ห้ามรับสินบน</li>
-<li>มาตรา 58 ห้ามลำเอียง</li>
-<li>มาตรา 59 ต้องปฏิบัติตามกฎเช่นเดียวกับผู้เล่น</li>
-<li>มาตรา 60 การตัดสินถือเป็นที่สิ้นสุด</li>
-</ol>
+<h2><i class="fas fa-crown"></i> หมวดที่ 3 : MOD / HD ADMIN</h2>
+<ul class="regulation-grid" id="admin-list">
+<li><strong>มาตรา 41</strong> ห้ามขอแอดมิน</li><li><strong>มาตรา 42</strong> ห้ามปลอมตัวเป็นแอดมิน</li><li><strong>มาตรา 43</strong> ห้ามอ้างอำนาจแอดมิน</li><li><strong>มาตรา 44</strong> ห้ามใช้คำสั่งเพื่อประโยชน์ส่วนตน</li><li><strong>มาตรา 45</strong> ห้ามสั่ง Kick โดยไม่มีเหตุผล</li><li><strong>มาตรา 46</strong> ห้ามใช้ Fly รบกวนผู้อื่น</li><li><strong>มาตรา 47</strong> ห้ามใช้ God Mode</li><li><strong>มาตรา 48</strong> ห้ามใช้ Noclip</li><li><strong>มาตรา 49</strong> ห้าม Abuse คำสั่ง</li><li><strong>มาตรา 50</strong> ห้ามแจกยศโดยพลการ</li><li><strong>มาตรา 51</strong> ต้องบันทึกหลักฐานก่อนลงโทษ</li><li><strong>มาตรา 52</strong> ต้องใช้ถ้อยคำสุภาพ</li><li><strong>มาตรา 53</strong> ห้ามแบนโดยไม่มีเหตุผล</li><li><strong>มาตรา 54</strong> ห้ามใช้อำนาจข่มขู่</li><li><strong>มาตรา 55</strong> ห้ามเผยข้อมูลแอดมิน</li><li><strong>มาตรา 56</strong> ห้ามแก้ไขข้อมูลผู้เล่น</li><li><strong>มาตรา 57</strong> ห้ามรับสินบน</li><li><strong>มาตรา 58</strong> ห้ามลำเอียง</li><li><strong>มาตรา 59</strong> ต้องปฏิบัติตามกฎเช่นเดียวกับผู้เล่น</li><li><strong>มาตรา 60</strong> การตัดสินถือเป็นที่สิ้นสุด</li>
+</ul>
 </article>
 
 <article id="speech">
-<h2>หมวดที่ 4 : การพูดและการสื่อสาร</h2>
-<ol>
-<li>มาตรา 61 ห้ามใช้คำหยาบรุนแรง</li>
-<li>มาตรา 62 ห้ามดูหมิ่นผู้อื่น</li>
-<li>มาตรา 63 ห้ามเหยียดเชื้อชาติ</li>
-<li>มาตรา 64 ห้ามเหยียดศาสนา</li>
-<li>มาตรา 65 ห้ามเหยียดเพศ</li>
-<li>มาตรา 66 ห้าม Spam Chat</li>
-<li>มาตรา 67 ห้ามโฆษณาเซิร์ฟเวอร์อื่น</li>
-<li>มาตรา 68 ห้ามก่อกวนแชท</li>
-<li>มาตรา 69 ห้ามเผยแพร่ข่าวปลอม</li>
-<li>มาตรา 70 ห้ามข่มขู่</li>
-<li>มาตรา 71 ห้ามยั่วยุทะเลาะวิวาท</li>
-<li>มาตรา 72 ห้ามปลอมคำสั่งราชการ</li>
-<li>มาตรา 73 ห้ามเผยแพร่ข้อมูลส่วนบุคคล</li>
-<li>มาตรา 74 ห้ามใช้ CAPS LOCK รัว</li>
-<li>มาตรา 75 ห้ามก่อดราม่า</li>
-<li>มาตรา 76 ห้ามด่าครอบครัวผู้อื่น</li>
-<li>มาตรา 77 ห้ามใช้คำไม่เหมาะสมในพิธี</li>
-<li>มาตรา 78 ห้ามใช้เสียงรบกวน VC</li>
-<li>มาตรา 79 ห้ามหลอกลวงผู้เล่น</li>
-<li>มาตรา 80 ผู้ฝ่าฝืนอาจถูก Mute</li>
-</ol>
+<h2><i class="fas fa-microphone-alt"></i> หมวดที่ 4 : การพูดและการสื่อสาร</h2>
+<ul class="regulation-grid" id="speech-list">
+<li><strong>มาตรา 61</strong> ห้ามใช้คำหยาบรุนแรง</li><li><strong>มาตรา 62</strong> ห้ามดูหมิ่นผู้อื่น</li><li><strong>มาตรา 63</strong> ห้ามเหยียดเชื้อชาติ</li><li><strong>มาตรา 64</strong> ห้ามเหยียดศาสนา</li><li><strong>มาตรา 65</strong> ห้ามเหยียดเพศ</li><li><strong>มาตรา 66</strong> ห้าม Spam Chat</li><li><strong>มาตรา 67</strong> ห้ามโฆษณาเซิร์ฟเวอร์อื่น</li><li><strong>มาตรา 68</strong> ห้ามก่อกวนแชท</li><li><strong>มาตรา 69</strong> ห้ามเผยแพร่ข่าวปลอม</li><li><strong>มาตรา 70</strong> ห้ามข่มขู่</li><li><strong>มาตรา 71</strong> ห้ามยั่วยุทะเลาะวิวาท</li><li><strong>มาตรา 72</strong> ห้ามปลอมคำสั่งราชการ</li><li><strong>มาตรา 73</strong> ห้ามเผยแพร่ข้อมูลส่วนบุคคล</li><li><strong>มาตรา 74</strong> ห้ามใช้ CAPS LOCK รัว</li><li><strong>มาตรา 75</strong> ห้ามก่อดราม่า</li><li><strong>มาตรา 76</strong> ห้ามด่าครอบครัวผู้อื่น</li><li><strong>มาตรา 77</strong> ห้ามใช้คำไม่เหมาะสมในพิธี</li><li><strong>มาตรา 78</strong> ห้ามใช้เสียงรบกวน VC</li><li><strong>มาตรา 79</strong> ห้ามหลอกลวงผู้เล่น</li><li><strong>มาตรา 80</strong> ผู้ฝ่าฝืนอาจถูก Mute</li>
+</ul>
 </article>
 
 <article id="adult">
-<h2>หมวดที่ 5 : อนาจารและพฤติกรรมไม่เหมาะสม</h2>
-<ol>
-<li>มาตรา 81 ห้ามกระทำการส่อไปทางเพศ</li>
-<li>มาตรา 82 ห้าม ERP</li>
-<li>มาตรา 83 ห้ามใช้คำลามก</li>
-<li>มาตรา 84 ห้ามส่งภาพไม่เหมาะสม</li>
-<li>มาตรา 85 ห้ามใช้ Avatar ลามก</li>
-<li>มาตรา 86 ห้ามตั้งชื่อสื่ออนาจาร</li>
-<li>มาตรา 87 ห้ามชักชวนกิจกรรมไม่เหมาะสม</li>
-<li>มาตรา 88 ห้ามเปิดเสียงลามก</li>
-<li>มาตรา 89 ห้ามเผยแพร่ลิงก์อนาจาร</li>
-<li>มาตรา 90 ห้ามแสดงท่าทางล่อแหลม</li>
-<li>มาตรา 91 ห้ามคุกคามทางเพศ</li>
-<li>มาตรา 92 ห้ามล่วงละเมิดผู้อื่น</li>
-<li>มาตรา 93 ห้าม Roleplay เชิงเพศ</li>
-<li>มาตรา 94 ห้ามใช้สคริปต์อนาจาร</li>
-<li>มาตรา 95 ห้ามเผยแพร่ข้อมูลอายุเชิงเพศ</li>
-<li>มาตรา 96 ห้ามสร้างกลุ่มลับอนาจาร</li>
-<li>มาตรา 97 ห้ามชักชวนออกนอกแพลตฟอร์มเพื่อกิจกรรมดังกล่าว</li>
-<li>มาตรา 98 ห้ามส่งข้อความส่อเสียด</li>
-<li>มาตรา 99 ห้ามเผยแพร่สื่อผิดกฎ Roblox</li>
-<li>มาตรา 100 ผู้ฝ่าฝืนอาจถูกแบนถาวร</li>
-</ol>
+<h2><i class="fas fa-heart-broken"></i> หมวดที่ 5 : อนาจารและพฤติกรรมไม่เหมาะสม</h2>
+<ul class="regulation-grid" id="adult-list">
+<li><strong>มาตรา 81</strong> ห้ามกระทำการส่อไปทางเพศ</li><li><strong>มาตรา 82</strong> ห้าม ERP</li><li><strong>มาตรา 83</strong> ห้ามใช้คำลามก</li><li><strong>มาตรา 84</strong> ห้ามส่งภาพไม่เหมาะสม</li><li><strong>มาตรา 85</strong> ห้ามใช้ Avatar ลามก</li><li><strong>มาตรา 86</strong> ห้ามตั้งชื่อสื่ออนาจาร</li><li><strong>มาตรา 87</strong> ห้ามชักชวนกิจกรรมไม่เหมาะสม</li><li><strong>มาตรา 88</strong> ห้ามเปิดเสียงลามก</li><li><strong>มาตรา 89</strong> ห้ามเผยแพร่ลิงก์อนาจาร</li><li><strong>มาตรา 90</strong> ห้ามแสดงท่าทางล่อแหลม</li><li><strong>มาตรา 91</strong> ห้ามคุกคามทางเพศ</li><li><strong>มาตรา 92</strong> ห้ามล่วงละเมิดผู้อื่น</li><li><strong>มาตรา 93</strong> ห้าม Roleplay เชิงเพศ</li><li><strong>มาตรา 94</strong> ห้ามใช้สคริปต์อนาจาร</li><li><strong>มาตรา 95</strong> ห้ามเผยแพร่ข้อมูลอายุเชิงเพศ</li><li><strong>มาตรา 96</strong> ห้ามสร้างกลุ่มลับอนาจาร</li><li><strong>มาตรา 97</strong> ห้ามชักชวนออกนอกแพลตฟอร์มเพื่อกิจกรรมดังกล่าว</li><li><strong>มาตรา 98</strong> ห้ามส่งข้อความส่อเสียด</li><li><strong>มาตรา 99</strong> ห้ามเผยแพร่สื่อผิดกฎ Roblox</li><li><strong>มาตรา 100</strong> ผู้ฝ่าฝืนอาจถูกแบนถาวร</li>
+</ul>
 </article>
-
 </section>
+</div>
+
+<button class="mode-toggle" id="darkModeToggle" aria-label="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></button>
+<button class="scroll-top" id="scrollTopBtn" aria-label="กลับด้านบน"><i class="fas fa-arrow-up"></i></button>
 
 <footer>
 <p>
-© Royal Thai Army (Simulation)<br>
-กองทัพบก (จำลอง) ROBLOX Military Roleplay<br>
-ฉบับ พ.ศ. 2569
+<i class="fas fa-scroll"></i> © Royal Thai Army (Simulation) – กองทัพบก (จำลอง) ROBLOX Military Roleplay <br>
+ระเบียบ 100 มาตรา ฉบับปรับปรุง พ.ศ. 2569 | ปฏิบัติด้วยวินัยเพื่อความสนุกของทุกคน
 </p>
 </footer>
 
+<script>
+// Dark mode & LocalStorage
+const toggleBtn = document.getElementById('darkModeToggle');
+const body = document.body;
+if(localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark');
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+} else {
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+}
+
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    if(body.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+});
+
+// Scroll to top button
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 400) {
+        scrollBtn.style.display = 'flex';
+    } else {
+        scrollBtn.style.display = 'none';
+    }
+});
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+scrollBtn.style.display = 'none';
+
+// Optionally: จัดการไอคอนใน regulation-grid เพิ่มความสวยงาม
+document.querySelectorAll('.regulation-grid').forEach(grid => {
+    const items = grid.querySelectorAll('li');
+    items.forEach(li => {
+        if(!li.querySelector('i')) {
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-balance-scale';
+            li.prepend(icon);
+        }
+    });
+});
+</script>
 </body>
 </html>
